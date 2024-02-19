@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { GoogleLogin } from '@react-oauth/google';
 import { useNavigate } from 'react-router-dom';
 
-import './login.css';
+import './login.css'; // Make sure you have defined right-panel-active class in this file
 import LogoSvg from "./logosvg";
 
 const LoginPage = () => {
@@ -17,26 +17,25 @@ const LoginPage = () => {
         setIsSignUpActive(false);
     };
 
-
     return (
         <div className="login-page">
             <div className={`container ${isSignUpActive ? 'right-panel-active' : ''}`}>
                 <div className="form-container sign-up-container">
                     <form action="#">
                         <h1>Sign Up with Google</h1>
-                        <br></br><br></br><br></br>
+                        <br /><br /><br />
                         <div className="login-button">
-                        <GoogleLogin
-                            onSuccess={tokenResponse => {
-                                console.log(tokenResponse);
-                                if(tokenResponse) {
-                                    navigate('/dashboard',{state: { tokenResponse }});
-                                }
-                            }}
-                            onError={() => {
-                                console.log('Login Failed');
-                            }}
-                        />
+                            <GoogleLogin
+                                onSuccess={tokenResponse => {
+                                    console.log(tokenResponse);
+                                    if (tokenResponse) {
+                                        navigate('/dashboard', { state: { tokenResponse } });
+                                    }
+                                }}
+                                onError={error => {
+                                    console.log('Login Failed:', error);
+                                }}
+                            />
                         </div>
                     </form>
                 </div>
