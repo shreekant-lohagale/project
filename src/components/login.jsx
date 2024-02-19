@@ -17,31 +17,30 @@ const LoginPage = () => {
         setIsSignUpActive(false);
     };
 
-
     return (
         <div className="login-page">
-            <div className={container ${isSignUpActive ? 'right-panel-active' : ''}}>
+            <div className={`container ${isSignUpActive ? 'right-panel-active' : ''}`}>
                 <div className="form-container sign-up-container">
                     <form action="#">
                         <h1>Sign Up with Google</h1>
-                        <br></br><br></br><br></br>
+                        <br /><br /><br />
 
                         {/* Google Login button */}
                         <div className="login-button">
-                        <GoogleLogin
-                            onSuccess={tokenResponse => {
-                                // on successful login
-                                console.log(tokenResponse);
+                            <GoogleLogin
+                                onSuccess={tokenResponse => {
+                                    // on successful login
+                                    console.log(tokenResponse);
 
-                                // redirect to dashboard and send the data recieved from google forward.
-                                if(tokenResponse) {
-                                    navigate('/dashboard',{state: { token: tokenResponse }});
-                                }
-                            }}
-                            onError={() => {
-                                console.log('Login Failed');
-                            }}
-                        />
+                                    // redirect to dashboard and send the data received from google forward.
+                                    if (tokenResponse) {
+                                        navigate('/dashboard', { state: { token: tokenResponse } });
+                                    }
+                                }}
+                                onError={() => {
+                                    console.log('Login Failed');
+                                }}
+                            />
                         </div>
                     </form>
                 </div>
