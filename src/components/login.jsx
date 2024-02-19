@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { GoogleLogin } from '@react-oauth/google';
 import { useNavigate } from 'react-router-dom';
 
-import './login.css'; // Make sure you have defined right-panel-active class in this file
+import './login.css';
 import LogoSvg from "./logosvg";
 
 const LoginPage = () => {
@@ -17,25 +17,31 @@ const LoginPage = () => {
         setIsSignUpActive(false);
     };
 
+
     return (
         <div className="login-page">
-            <div className={`container ${isSignUpActive ? 'right-panel-active' : ''}`}>
+            <div className={container ${isSignUpActive ? 'right-panel-active' : ''}}>
                 <div className="form-container sign-up-container">
                     <form action="#">
                         <h1>Sign Up with Google</h1>
-                        <br /><br /><br />
+                        <br></br><br></br><br></br>
+
+                        {/* Google Login button */}
                         <div className="login-button">
-                            <GoogleLogin
-                                onSuccess={tokenResponse => {
-                                    console.log(tokenResponse);
-                                    if (tokenResponse) {
-                                        navigate('/dashboard', { state: { tokenResponse } });
-                                    }
-                                }}
-                                onError={error => {
-                                    console.log('Login Failed:', error);
-                                }}
-                            />
+                        <GoogleLogin
+                            onSuccess={tokenResponse => {
+                                // on successful login
+                                console.log(tokenResponse);
+
+                                // redirect to dashboard and send the data recieved from google forward.
+                                if(tokenResponse) {
+                                    navigate('/dashboard',{state: { token: tokenResponse }});
+                                }
+                            }}
+                            onError={() => {
+                                console.log('Login Failed');
+                            }}
+                        />
                         </div>
                     </form>
                 </div>
