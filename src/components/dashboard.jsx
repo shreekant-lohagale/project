@@ -1,7 +1,7 @@
 import { gapi } from "gapi-script";
 import React, { useEffect } from "react";
 import { useLocation } from 'react-router-dom';
-import StudySiteLandingPage from "./tempDash.jsx";;
+import StudySiteLandingPage from "./tempDash";;
 
 
 const Dashboard = () => {
@@ -36,7 +36,7 @@ const Dashboard = () => {
     useEffect(()=>{
         function start() {
             gapi.client.init({
-                apiKey: "AIzaSyDyrHPIdRnantj6_shr67uhceX5YdUEOW8",
+                apiKey: "AIzaSyArRkSGzgX3RQME6a0sCBMJBfLDSkX-IaM",
                 client_id: "542158005431-2u11buvoco1dks7k3u260u2t3ukqr5gp.apps.googleusercontent.com",
                 scope: "https://www.googleapis.com/auth/drive",
             })
