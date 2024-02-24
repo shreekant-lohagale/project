@@ -36,8 +36,8 @@ const Dashboard = () => {
     useEffect(()=>{
         function start() {
             gapi.client.init({
-                apiKey: "AIzaSyArRkSGzgX3RQME6a0sCBMJBfLDSkX-IaM",
-                client_id: "356377434224-gv1sfl0pk97qbiu2v2ub0fmsh8mh3plj.apps.googleusercontent.com",
+                apiKey: "AIzaSyDyrHPIdRnantj6_shr67uhceX5YdUEOW8",
+                client_id: "542158005431-2u11buvoco1dks7k3u260u2t3ukqr5gp.apps.googleusercontent.com",
                 scope: "https://www.googleapis.com/auth/drive",
             })
         };
